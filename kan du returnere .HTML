@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> kan du returnere?</title>
+</head>
+<body>
+    <div id="app"></div>
+    <button onclick="createAndShowHtml('pink','Hello','30','dotted','5')">Test 1</button>
+    <button onclick="createAndShowHtml('skyblue','Hello world','20','solid','1')">Test 2 </button>
+    <button onclick="createAndShowHtml('green','Hello world2,','15','dashed','10')">Test 3</button>
+
+    <script>
+        function createAndShowHtml(color, text, fontSize, borderStyle, borderSize){
+            document.getElementById('app').innerHTML = `
+            <div ${createStyle(color, fontSize, borderStyle, borderSize)}>${text} </div>
+            `;
+        }
+
+        function createStyle(color, fontSize, borderStyle, borderSize){
+            return `style="${createBackgroundColor(color)}${createFontSize(fontSize)} ${createBorderStyle(borderStyle, borderSize)}"`
+        }
+        function createBackgroundColor(color){
+            return `background-color: ${color};`;
+        }
+
+        function createFontSize(fontSize){
+            return `font-size: ${fontSize}px;`;
+        }
+
+        function createBorderStyle(borderStyle, borderSize){
+            return `border: black ${borderStyle} ${createBorderSize(borderSize)}`;
+        }
+
+        function createBorderSize(borderSize){
+            return `${borderSize}px;`
+        }
+    </script>
+</body>
+</html>
